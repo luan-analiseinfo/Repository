@@ -3,6 +3,6 @@
  */
 /**
  * @author luan
- * pacote principal fgdfg jhgj
+ * pacote principal fgdfg
  */
 package br.com.project.checkskills.repositories;
