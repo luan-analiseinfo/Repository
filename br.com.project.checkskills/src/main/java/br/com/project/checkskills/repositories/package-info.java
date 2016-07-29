@@ -3,6 +3,6 @@
  */
 /**
  * @author luan
- * pacote principal fgdfg giovane é gay
+ * pacote principal fgdfg
  */
 package br.com.project.checkskills.repositories;
