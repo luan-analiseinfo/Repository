@@ -22,9 +22,9 @@ public class CompetenciaEntity extends BaseEntity<Long> {
 	private String nome;
 
 	@Column(length = 255, nullable = true)
-	private String descrissao;
+	private String descricao;
 
-	@JoinColumn(name = "ID_TIPO_COMPETENCIA", referencedColumnName = "ID_TIPO_COMPETENCIA")
+	@JoinColumn(name = "ID_TIPO_COMPETENCIA", referencedColumnName = "ID_TIPO_COMPETENCIA",nullable=false)
 	@ManyToOne(optional = false)
 	private tipoCompetenciaEntity tipoCompetencia;
 	
@@ -35,7 +35,33 @@ public class CompetenciaEntity extends BaseEntity<Long> {
 	public CompetenciaEntity(String nome, String descrissao) {
 		super();
 		this.nome = nome;
-		this.descrissao = descrissao;
+		this.descricao = descrissao;
 	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	public tipoCompetenciaEntity getTipoCompetencia() {
+		return tipoCompetencia;
+	}
+
+	public void setTipoCompetencia(tipoCompetenciaEntity tipoCompetencia) {
+		this.tipoCompetencia = tipoCompetencia;
+	}
+	
+	
 
 }
