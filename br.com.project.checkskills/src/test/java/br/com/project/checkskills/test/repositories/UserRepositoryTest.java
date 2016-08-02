@@ -26,7 +26,13 @@ public class UserRepositoryTest extends AbstractDatabaseTest {
 	
 	@Ignore
 	@Test
-	public void testCategoryRepository() {
+	public void testDelete() {
+		this.funcionarioRepository.delete(1L);
+	}
+	
+	
+	@Test
+	public void testFindAll() {
 		
 		List<UsuarioEntity> users = this.userRepository.findAll();
 
@@ -41,21 +47,24 @@ public class UserRepositoryTest extends AbstractDatabaseTest {
 		 LOGGER.info(usuarioEntity);
 	}
 	
+	@Ignore
 	@Test
 	public void saveUser(){
 		
 		UsuarioEntity usuarioEntity = new UsuarioEntity();
 		
-		usuarioEntity.setId(1L);
+		usuarioEntity.setId(3L);
 		usuarioEntity.setNome("luan");
 		usuarioEntity.setPassword("1312313");
-		usuarioEntity.setEmail("adfadattfasdfd22");
+		usuarioEntity.setEmail("pedro@lucas.com");
+		
 		
 		FuncionarioEntity funcionarioEntity = new FuncionarioEntity();
-		funcionarioEntity.setId(1L);
-		funcionarioEntity.setNome("luan lucas");
+		funcionarioEntity.setId(3L);
+		funcionarioEntity.setNome("luan atualizado");
 		funcionarioEntity.setUsuarioEntity(usuarioEntity);
 		
+		usuarioEntity.setFuncionarioEntity(funcionarioEntity);
 		
 		try {
 		this.funcionarioRepository.save(funcionarioEntity);	
