@@ -42,8 +42,10 @@ public class UsuarioEntity extends BaseEntity<Long> {
 	, inverseJoinColumns = @JoinColumn(name = "ID_PERMISSAO"))
 	private List<PermissaoEntity> permissions;
 
+
 	@OneToOne(mappedBy="usuarioEntity")
 	private FuncionarioEntity funcionarioEntity;
+	
 	
 	public String getNome() {
 		return nome;
@@ -85,12 +87,5 @@ public class UsuarioEntity extends BaseEntity<Long> {
 	}
 	
 	
-	public FuncionarioEntity getFuncionarioEntity() {
-		return funcionarioEntity;
-	}
-	
-	public void setFuncionarioEntity(FuncionarioEntity funcionarioEntity) {
-		this.funcionarioEntity = funcionarioEntity;
-	}
 			
 }
