@@ -9,8 +9,10 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import br.com.project.checkskills.entities.dadosbasicos.FuncionarioEntity;
 import br.com.project.checkskills.utils.BaseEntity;
 
 //declara como sendo uma Entidade no Banco
@@ -41,6 +43,10 @@ public class UsuarioEntity extends BaseEntity<Long> {
 	private List<PermissaoEntity> permissions;
 
 
+	@OneToOne(mappedBy="usuarioEntity")
+	private FuncionarioEntity funcionarioEntity;
+	
+	
 	public String getNome() {
 		return nome;
 	}
