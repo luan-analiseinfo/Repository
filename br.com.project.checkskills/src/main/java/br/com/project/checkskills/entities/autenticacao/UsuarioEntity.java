@@ -1,4 +1,4 @@
-package br.com.project.checkskills.entities.autenticacao;
+	package br.com.project.checkskills.entities.autenticacao;
 
 import java.util.List;
 
@@ -41,10 +41,6 @@ public class UsuarioEntity extends BaseEntity<Long> {
 	@JoinTable(name = "ASS_USUARIO_PERMISSAO", joinColumns = @JoinColumn (name="ID_USUARIO")
 	, inverseJoinColumns = @JoinColumn(name = "ID_PERMISSAO"))
 	private List<PermissaoEntity> permissions;
-
-
-	@OneToOne(mappedBy="usuarioEntity")
-	private FuncionarioEntity funcionarioEntity;
 	
 	
 	public String getNome() {
@@ -85,7 +81,8 @@ public class UsuarioEntity extends BaseEntity<Long> {
 	public void setPermissions(List<PermissaoEntity> permissions) {
 		this.permissions = permissions;
 	}
-	
+
+
 	
 			
 }
