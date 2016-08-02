@@ -24,7 +24,7 @@ public class FuncionarioEntity extends BaseEntity<Long> {
 	private String nome;
 	
 	@OneToOne( cascade = CascadeType.ALL, optional = false, fetch = FetchType.EAGER, orphanRemoval = true)
-	@JoinColumn(name="ID_USUARIO")
+	@JoinColumn(name="ID_FUNCIONARIO")
 	private UsuarioEntity usuarioEntity;
 
 
