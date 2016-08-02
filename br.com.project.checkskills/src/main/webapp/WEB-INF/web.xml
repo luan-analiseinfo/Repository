@@ -35,12 +35,11 @@
 		<welcome-file>index.xhtml</welcome-file>
 		</welcome-file-list>
 		
-		
-	<!-- PRIMEFACES THEME CONFIG -->
-	<context-param>
-		<param-name>primefaces.THEME</param-name>
-		<param-value>bluesky</param-value>
-	</context-param>
+
+		<context-param>
+    		<param-name>BootsFaces_THEME</param-name>
+    		<param-value>cerulean</param-value>
+		</context-param>
 
 	<!-- JAVASERVER FACES -->
 	<!-- Change to "Production" when ready to deploy. -->
