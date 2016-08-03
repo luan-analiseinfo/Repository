@@ -4,7 +4,8 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:bnu="http://bootsfaces.net/ui">
 
 <ui:composition template="/tampletes/modeloGeral.xhtml">
 	<ui:define name="conteudo">
@@ -12,69 +13,77 @@
 			<f:event listener="#{usuarioBean.onLoad()}" type="preRenderView"></f:event>
 		</f:view>
 
-		<p:panel id="userPanel" header="Usuarios">
+		<bnu:panel id="userPanel" title="Usuarios" look="primary" panel-footer="primary" >
 			<h:form id="usuarioForm">
 			
-			<p:commandButton value="Adicionar" action="/pages/usuario/addEdit.xhtml"
+			
+			<h:panelGrid columns="3">
+			<bnu:commandButton value="Adicionar" action="/pages/usuario/addEdit.xhtml"
 			actionListener="#{usuarioBean.adicionar}" update="UsuarioDataTable" ajax="false"/>
 			
-			<p:commandButton value="Editar" action="/pages/usuario/addEdit.xhtml"
+			<bnu:commandButton value="Editar" action="/pages/usuario/addEdit.xhtml"
 			actionListener="#{usuarioBean.editar}" update="UsuarioDataTable"/>
 			
 			
-			<p:commandButton value="Excluir" action="/pages/usuario/addEdit.xhtml"
+			<bnu:commandButton value="Excluir" action="/pages/usuario/addEdit.xhtml"
 			actionListener="#{usuarioBean.deletar}" update="UsuarioDataTable"/>
 			
-				<p:dataTable id="UsuarioDataTable" widgetVar="dataTable"
+			</h:panelGrid>
+			<br/>
+				<bnu:dataTable id="UsuarioDataTable" widgetVar="dataTable"
 					var="usuario" value="#{usuarioBean.usuarios}" paginator="true"
 					rows="10"
 					paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
 					rowsPerPageTemplate="5,10,20" rowKey="#{usuario.id}"
 					selectionMode="single">
-					<p:column>
+					<bnu:column>
 						<f:facet name="header">
 							<h:outputText value="ID" />
 						</f:facet>
 						<h:outputText value="#{usuario.id}" />
-					</p:column>
+					</bnu:column>
 
-					<p:column>
+					<bnu:column>
 						<f:facet name="header">
 							<h:outputText value="Nome usuario" />
 						</f:facet>
 						<h:outputText value="#{usuario.nome}" />
-					</p:column>
+					</bnu:column>
 
-					<p:column>
+					<bnu:column>
 						<f:facet name="header">
 							<h:outputText value="Nome" />
 						</f:facet>
 						<h:outputText value="#{usuario.funcionarioEntity.nome}" />
-					</p:column>
+					</bnu:column>
 
-					<p:column>
+					<bnu:column>
 						<f:facet name="header">
 							<h:outputText value="Senha" />
 						</f:facet>
 						<h:outputText value="#{usuario.password}" />
-					</p:column>
+					</bnu:column>
 
-					<p:column>
+					<bnu:column>
 						<f:facet name="header">
 							<h:outputText value="E-mail" />
 						</f:facet>
 						<h:outputText value="#{usuario.email}" />
-					</p:column>
+					</bnu:column>
 
-					<p:column>
+					<bnu:column>
+					<f:facet name="header">
+					<h:outputText value="Permissão" />
+					</f:facet>
 						<ui:repeat var="permissao" value="#{usuario.permissions}">
 							<h:outputText value="#{permissao.role}" />
 							<br />
 						</ui:repeat>
-					</p:column>
-				</p:dataTable>
+						
+					</bnu:column>
+				</bnu:dataTable>
 			</h:form>
-		</p:panel>
+		</bnu:panel>
 	</ui:define>
 </ui:composition>
 
