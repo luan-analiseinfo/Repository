@@ -19,18 +19,18 @@
 			
 			<h:panelGrid columns="3" >
 			<bnu:buttonToolbar>
-			<bnu:commandButton value="Adicionar" action="/pages/usuario/addEdit.xhtml"
-			actionListener="#{usuarioBean.adicionar}" update="UsuarioDataTable" ajax="false"
+			<bnu:commandButton value="Adicionar" action="/pages/usuario/usuarioAddEdit.xhtml"
+			 update="UsuarioDataTable" ajax="true"
 			look="success"
 			/>
 			
-			<bnu:commandButton value="Editar" action="/pages/usuario/addEdit.xhtml"
-			actionListener="#{usuarioBean.editar}" update="UsuarioDataTable"
+			<bnu:commandButton value="Editar" action="/pages/usuario/usuarioAddEdit.xhtml"
+			actionListener="#{usuarioBean.selectUser()}" update="UsuarioDataTable"
 			look="warning"/>
 			
 			
-			<bnu:commandButton value="Excluir" action="/pages/usuario/addEdit.xhtml"
-			actionListener="#{usuarioBean.deletar}" update="UsuarioDataTable"
+			<bnu:commandButton value="Excluir" action="/pages/usuario/usuarioAddEdit.xhtml"
+			actionListener="#{usuarioBean.selectUser()}" update="UsuarioDataTable"
 			look="danger"/>
 			</bnu:buttonToolbar>
 			</h:panelGrid>
@@ -39,44 +39,44 @@
 					var="usuario" value="#{usuarioBean.usuarios}" paginator="true"
 					rows="10"
 					paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
-					rowsPerPageTemplate="5,10,20" rowKey="#{usuario.id}"
+					rowsPerPageTemplate="5,10,20" rowKey="#{usuario.id}" select="true"
 					selectionMode="single">
-					<bnu:column>
+					<bnu:dataTableColumn>
 						<f:facet name="header">
 							<h:outputText value="ID" />
 						</f:facet>
 						<h:outputText value="#{usuario.id}" />
-					</bnu:column>
+					</bnu:dataTableColumn>
 
-					<bnu:column>
+					<bnu:dataTableColumn>
 						<f:facet name="header">
 							<h:outputText value="Nome usuario" />
 						</f:facet>
 						<h:outputText value="#{usuario.nome}" />
-					</bnu:column>
+					</bnu:dataTableColumn>
 
-					<bnu:column>
+					<bnu:dataTableColumn>
 						<f:facet name="header">
 							<h:outputText value="Nome" />
 						</f:facet>
 						<h:outputText value="#{usuario.funcionarioEntity.nome}" />
-					</bnu:column>
+					</bnu:dataTableColumn>
 
-					<bnu:column>
+					<bnu:dataTableColumn>
 						<f:facet name="header">
 							<h:outputText value="Senha" />
 						</f:facet>
 						<h:outputText value="#{usuario.password}" />
-					</bnu:column>
+					</bnu:dataTableColumn>
 
-					<bnu:column>
+					<bnu:dataTableColumn>
 						<f:facet name="header">
 							<h:outputText value="E-mail" />
 						</f:facet>
 						<h:outputText value="#{usuario.email}" />
-					</bnu:column>
+					</bnu:dataTableColumn>
 
-					<bnu:column>
+					<bnu:dataTableColumn>
 					<f:facet name="header">
 					<h:outputText value="Permissão" />
 					</f:facet>
@@ -85,7 +85,7 @@
 							<br />
 						</ui:repeat>
 						
-					</bnu:column>
+					</bnu:dataTableColumn>
 				</bnu:dataTable>
 			</h:form>
 		</bnu:panel>

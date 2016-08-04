@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" xmlns:bnu="http://bootsfaces.net/ui">
+
+
+<ui:composition template="/tampletes/modeloGeral.xhtml">
+	<ui:define name="conteudo">
+	
+	<bnu:panel>
+		<h:form>
+			<h:inputHidden value="#{usuarioBean.usuarioEntity.id}"/>
+			
+			<p:panelGrid columns="2">
+				<f:facet name="header">
+				<h:outputText value="Dados Usuario" />
+				</f:facet>
+				
+				<p:outputLabel value="Nome Usuario"/>
+				<p:inputText value="#{usuarioBean.usuarioEntity.nome}"/>
+				
+				<p:outputLabel value="Email"/>
+				<p:inputText value="#{usuarioBean.usuarioEntity.email}"/>
+				
+				<p:outputLabel value="Password"/>
+				<p:inputText value="#{usuarioBean.usuarioEntity.password}"/>
+				
+				
+				<f:facet name="footer">
+					<bnu:row>
+						<bnu:commandButton value="salvar" 
+						action="/pages/usuario/usuarioList.xhtml" actionListener="#{usuarioBean.salvarOuDeletar()}"/>
+						
+						<bnu:commandButton value="cancelar" action="/pages/usuario/usuarioList.xhtml"
+						actionListener="#{usuarioBean.cancel()}" />
+					</bnu:row>
+				</f:facet>
+				
+			</p:panelGrid>
+		</h:form>
+	</bnu:panel>
+	</ui:define>
+</ui:composition>
+</html>

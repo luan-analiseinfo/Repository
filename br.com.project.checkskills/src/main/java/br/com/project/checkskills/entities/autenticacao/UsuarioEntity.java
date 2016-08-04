@@ -92,5 +92,22 @@ public class UsuarioEntity extends BaseEntity<Long> {
 	public void setFuncionarioEntity(FuncionarioEntity funcionarioEntity) {
 		this.funcionarioEntity = funcionarioEntity;
 	}
+
+
+	public UsuarioEntity() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public UsuarioEntity(String nome, String email, String password, List<PermissaoEntity> permissions,
+			FuncionarioEntity funcionarioEntity) {
+		super();
+		this.nome = nome;
+		this.email = email;
+		this.password = password;
+		this.permissions = permissions;
+		this.funcionarioEntity = funcionarioEntity;
+	}
 			
+	
+	
 }

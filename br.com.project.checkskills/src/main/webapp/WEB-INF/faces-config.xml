@@ -9,15 +9,14 @@
 		<el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
 	</application>
 
+
 	<application>
+		
 		<resource-bundle>
 			<base-name>resources.labels</base-name>
 			<var>labels</var>
 		</resource-bundle>
-	
-	</application>
-
-	<application>
+		
 		<resource-bundle>
 			<base-name>resources.messages</base-name>
 			<var>messages</var>
