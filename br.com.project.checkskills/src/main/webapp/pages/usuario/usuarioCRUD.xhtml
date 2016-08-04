@@ -17,17 +17,22 @@
 			<h:form id="usuarioForm">
 			
 			
-			<h:panelGrid columns="3">
+			<h:panelGrid columns="3" >
+			<bnu:buttonToolbar>
 			<bnu:commandButton value="Adicionar" action="/pages/usuario/addEdit.xhtml"
-			actionListener="#{usuarioBean.adicionar}" update="UsuarioDataTable" ajax="false"/>
+			actionListener="#{usuarioBean.adicionar}" update="UsuarioDataTable" ajax="false"
+			look="success"
+			/>
 			
 			<bnu:commandButton value="Editar" action="/pages/usuario/addEdit.xhtml"
-			actionListener="#{usuarioBean.editar}" update="UsuarioDataTable"/>
+			actionListener="#{usuarioBean.editar}" update="UsuarioDataTable"
+			look="warning"/>
 			
 			
 			<bnu:commandButton value="Excluir" action="/pages/usuario/addEdit.xhtml"
-			actionListener="#{usuarioBean.deletar}" update="UsuarioDataTable"/>
-			
+			actionListener="#{usuarioBean.deletar}" update="UsuarioDataTable"
+			look="danger"/>
+			</bnu:buttonToolbar>
 			</h:panelGrid>
 			<br/>
 				<bnu:dataTable id="UsuarioDataTable" widgetVar="dataTable"
