@@ -12,6 +12,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.springframework.stereotype.Component;
+
 import br.com.project.checkskills.entities.dadosbasicos.FuncionarioEntity;
 import br.com.project.checkskills.utils.BaseEntity;
 
@@ -22,6 +24,7 @@ import br.com.project.checkskills.utils.BaseEntity;
 //Sobrescreve o nome do id em AbstractPersistable, somente quando o 
 //nome da chave primaria � difernete do nome da tabela
 @AttributeOverride(name = "id", column = @Column(name = "ID_USUARIO"))
+@Component(value="usuarioEntity")
 public class UsuarioEntity extends BaseEntity<Long> {
 
 	
@@ -108,6 +111,7 @@ public class UsuarioEntity extends BaseEntity<Long> {
 		this.funcionarioEntity = funcionarioEntity;
 	}
 			
+	
 	
 	
 }
