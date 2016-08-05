@@ -10,31 +10,43 @@
 <ui:composition template="/tampletes/modeloGeral.xhtml">
 	<ui:define name="conteudo">
 	
-			<h:form>
+	
+		<h:form id="frmuser">
 			<h:inputHidden value="#{usuarioBean.usuarioEntity.id}"/>
 			
-			<p:panelGrid columns="2">
-				<h:outputText value="Nome" />
-				<p:inputText value="#{usuarioBean.usuarioEntity.nome}" />
-				
-				
-				<h:outputText value="E-mail" />
-				<p:inputText value="#{usuarioBean.usuarioEntity.email}" />
-				
-				
-				<h:outputText value="Password" />
-				<p:inputText value="#{usuarioBean.usuarioEntity.password}" />
-				
-			</p:panelGrid>
 			
-			<p:panelGrid columns="2">
-			<p:commandButton value="Salvar" actionListener="#{usuarioBean.salvarOuDeletar()}"/>
-			<p:commandButton value="Cancelar"/>
-			
-			</p:panelGrid>
-		
+				<bnu:panel title="Dados Usuário" >
+				
+				<h:message for="frm_nome"  />
+				<bnu:inputText id="frm_nome" value="#{usuarioBean.usuarioEntity.nome}" label="Nome Usuário" 
+				required="true" required-message="Campo obrigatório"  />
+				
+				
+				<h:message for="frm_mail"  />
+				<bnu:inputText id="frm_mail" value="#{usuarioBean.usuarioEntity.email}" label="E-mail" 
+				required="true" required-message="Campo obrigatório"/>
+				
+				
+				<h:message for="frm_senha"  />
+				<bnu:inputText id="frm_senha" value="#{usuarioBean.usuarioEntity.password}" label="Password" size="20"
+				required="true" required-message="Campo obrigatório" />
+				
+				
+				
+				<f:facet name="footer">
+					<bnu:row>
+					<bnu:buttonToolbar>
+							<bnu:commandButton value="salvar" 
+						action="/pages/usuario/usuarioList.xhtml" actionListener="#{usuarioBean.salvarOuDeletar()}" look="info"/>
+						
+						<bnu:commandButton value="cancelar" action="/pages/usuario/usuarioList.xhtml"
+						actionListener="#{usuarioBean.cancel()}"  look="danger"/>
+					
+					</bnu:buttonToolbar>
+					</bnu:row>
+				</f:facet>
+				</bnu:panel>
 		</h:form>
-		
 	</ui:define>
 </ui:composition>
 </html>
