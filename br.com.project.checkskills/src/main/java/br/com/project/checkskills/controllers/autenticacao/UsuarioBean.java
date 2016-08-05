@@ -7,6 +7,7 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 
 import org.apache.log4j.Logger;
 import org.primefaces.event.SelectEvent;
@@ -16,7 +17,7 @@ import br.com.project.checkskills.repositories.autenticacao.IUsuarioRepository;
 import br.com.project.checkskills.user.UserMB;
 
 @ManagedBean(name="usuarioBean")
-@SessionScoped
+@ViewScoped
 public class UsuarioBean implements Serializable {
 
 	/**
