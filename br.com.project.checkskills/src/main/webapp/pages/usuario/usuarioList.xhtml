@@ -4,7 +4,8 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui" xmlns:bnu="http://bootsfaces.net/ui">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:bnu="http://bootsfaces.net/ui">
 
 <ui:composition template="/tampletes/modeloGeral.xhtml">
 	<ui:define name="conteudo">
@@ -12,26 +13,34 @@
 			<f:event listener="#{usuarioBean.onLoad()}" type="preRenderView"></f:event>
 		</f:view>
 
-		<bnu:panel id="userPanel" title="Usuarios" look="primary"
-			panel-footer="primary">
+		<bnu:panel id="userPanel" title="Usuarios" look="primary" panel-footer="primary" >
 			<h:form id="usuarioForm">
-
-
-				<h:panelGrid columns="3">
-					<bnu:buttonToolbar>
-						<bnu:commandButton value="Adicionar"
-							action="/pages/usuario/usuarioAddEdit.xhtml"
-							update="UsuarioDataTable" ajax="true" look="success" />
-
-
-					</bnu:buttonToolbar>
-				</h:panelGrid>
-				<br />
+			
+			
+			<h:panelGrid columns="3" >
+			<bnu:buttonToolbar>
+			<bnu:commandButton value="Adicionar" action="/pages/usuario/usuarioAddEdit.xhtml"
+			 update="UsuarioDataTable" ajax="true"
+			look="success"
+			/>
+			
+			<bnu:commandButton value="Editar" action="/pages/usuario/usuarioAddEdit.xhtml"
+			 update="UsuarioDataTable"
+			look="warning" >
+			</bnu:commandButton>
+			
+			
+			<bnu:commandButton value="Excluir" action="/pages/usuario/usuarioAddEdit.xhtml"
+			actionListener="#" update="UsuarioDataTable"
+			look="danger"/>
+			</bnu:buttonToolbar>
+			</h:panelGrid>
+			<br/>
 				<bnu:dataTable id="UsuarioDataTable" widgetVar="dataTable"
 					var="usuario" value="#{usuarioBean.usuarios}" paginator="true"
-					rows="10"
+					rows="10"  
 					paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
-					rowsPerPageTemplate="5,10,20" rowKey="#{usuario.id}" 
+					rowsPerPageTemplate="5,10,20" rowKey="#{usuario.id}" select="true" 
 					selectionMode="single">
 					<bnu:dataTableColumn>
 						<f:facet name="header">
@@ -69,35 +78,15 @@
 					</bnu:dataTableColumn>
 
 					<bnu:dataTableColumn>
-						<f:facet name="header">
-							<h:outputText value="Permissão" />
-						</f:facet>
+					<f:facet name="header">
+					<h:outputText value="Permissão" />
+					</f:facet>
 						<ui:repeat var="permissao" value="#{usuario.permissions}">
 							<h:outputText value="#{permissao.role}" />
 							<br />
 						</ui:repeat>
-
+						
 					</bnu:dataTableColumn>
-					<bnu:dataTableColumn >
-						<f:facet name="header">
-							<h:outputText value="Opções" />
-						</f:facet>
-						<bnu:buttonToolbar>
-							<bnu:button value="Editar"
-								action="/pages/usuario/usuarioAddEdit.xhtml"
-								update="UsuarioDataTable" look="warning">
-								<f:attribute value="#{usuario}" name="usuario_id"/>
-							</bnu:button>
-
-
-							<bnu:button value="Excluir"
-								action="/pages/usuario/usuarioAddEdit.xhtml" actionListener="#"
-								update="UsuarioDataTable" look="danger" >
-									<f:attribute value="#{usuario}" name="usuario_id"/>
-								</bnu:button>
-						</bnu:buttonToolbar>
-					</bnu:dataTableColumn>
-
 				</bnu:dataTable>
 			</h:form>
 		</bnu:panel>
