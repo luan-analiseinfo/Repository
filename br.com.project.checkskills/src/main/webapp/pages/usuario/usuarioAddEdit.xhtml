@@ -14,32 +14,29 @@
 		<h:form>
 			<h:inputHidden value="#{usuarioBean.usuarioEntity.id}"/>
 			
-			<p:panelGrid columns="2">
-				<f:facet name="header">
-				<h:outputText value="Dados Usuario" />
-				</f:facet>
+			
+				<bnu:panel title="Dados Usuário" >
 				
-				<p:outputLabel value="Nome Usuario"/>
-				<p:inputText value="#{usuarioBean.usuarioEntity.nome}"/>
+				<bnu:inputText value="#{usuarioBean.usuarioEntity.nome}" label="Nome Usuário" />
 				
-				<p:outputLabel value="Email"/>
-				<p:inputText value="#{usuarioBean.usuarioEntity.email}"/>
+				<bnu:inputText value="#{usuarioBean.usuarioEntity.email}" label="E-mail"/>
 				
-				<p:outputLabel value="Password"/>
-				<p:inputText value="#{usuarioBean.usuarioEntity.password}"/>
+				<bnu:inputText value="#{usuarioBean.usuarioEntity.password}" label="Password" size="20"/>
 				
 				
 				<f:facet name="footer">
 					<bnu:row>
-						<bnu:commandButton value="salvar" 
-						action="/pages/usuario/usuarioList.xhtml" actionListener="#{usuarioBean.salvarOuDeletar()}"/>
+					<bnu:buttonToolbar>
+							<bnu:commandButton value="salvar" 
+						action="/pages/usuario/usuarioList.xhtml" actionListener="#{usuarioBean.salvarOuDeletar()}" look="info"/>
 						
 						<bnu:commandButton value="cancelar" action="/pages/usuario/usuarioList.xhtml"
-						actionListener="#{usuarioBean.cancel()}" />
+						actionListener="#{usuarioBean.cancel()}"  look="danger"/>
+					
+					</bnu:buttonToolbar>
 					</bnu:row>
 				</f:facet>
-				
-			</p:panelGrid>
+				</bnu:panel>
 		</h:form>
 	</bnu:panel>
 	</ui:define>
