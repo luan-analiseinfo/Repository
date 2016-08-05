@@ -19,18 +19,18 @@
 			
 			<h:panelGrid columns="3" >
 			<bnu:buttonToolbar>
-			<bnu:commandButton value="Adicionar" action="/pages/usuario/usuarioAddEdit.xhtml"
+			<bnu:commandButton value="Adicionar" action="#{usuarioBean.add()}"
 			 update="UsuarioDataTable" ajax="true"
 			look="success"
 			/>
 			
-			<bnu:commandButton value="Editar" action="/pages/usuario/usuarioAddEdit.xhtml"
+			<bnu:commandButton value="Editar" 
 			 update="UsuarioDataTable"
 			look="warning" >
 			</bnu:commandButton>
 			
 			
-			<bnu:commandButton value="Excluir" action="/pages/usuario/usuarioAddEdit.xhtml"
+			<bnu:commandButton value="Deletar" 
 			actionListener="#" update="UsuarioDataTable"
 			look="danger"/>
 			</bnu:buttonToolbar>

@@ -30,9 +30,10 @@ public class UsuarioBean implements Serializable {
 	@ManagedProperty(value="#{usuarioRepository}")
 	private IUsuarioRepository usuarioRepository;
 	
+	
 	private List<UsuarioEntity> usuarios;
 	
-	
+	@ManagedProperty(value="#{usuarioEntity}")
 	private UsuarioEntity usuarioEntity;
 	
 	private UsuarioEntity selectedUser;
@@ -85,6 +86,10 @@ public class UsuarioBean implements Serializable {
 		usuarioEntity = null;
 	}
 	
+	public String add(){
+		this.usuarioEntity = null;
+		return "/pages/usuario/usuarioAddEdit.xhtml?faces-redirect=true";
+	}
 	
 	//todos get e set
 	public IUsuarioRepository getUsuarioRepository() {
@@ -108,8 +113,6 @@ public class UsuarioBean implements Serializable {
 
 
 	public UsuarioEntity getUsuarioEntity() {
-		if (usuarioEntity == null) 
-			usuarioEntity = new UsuarioEntity();
 		return usuarioEntity;
 	}
 
