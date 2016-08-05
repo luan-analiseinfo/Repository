@@ -3,6 +3,7 @@ package br.com.project.checkskills.controllers.autenticacao;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
@@ -44,6 +45,7 @@ public class UsuarioBean implements Serializable {
 	}
 
 	//salvar ou atualizar
+	
 	public void salvarOuDeletar(){
 		if(this.usuarioEntity != null){
 			if(this.usuarioEntity.getId() == null)
