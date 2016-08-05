@@ -11,17 +11,26 @@
 	<ui:define name="conteudo">
 	
 	
-		<h:form>
+		<h:form id="frmuser">
 			<h:inputHidden value="#{usuarioBean.usuarioEntity.id}"/>
 			
 			
 				<bnu:panel title="Dados Usuário" >
 				
-				<bnu:inputText value="#{usuarioBean.usuarioEntity.nome}" label="Nome Usuário" />
+				<h:message for="frm_nome"  />
+				<bnu:inputText id="frm_nome" value="#{usuarioBean.usuarioEntity.nome}" label="Nome Usuário" 
+				required="true" required-message="Campo obrigatório"  />
 				
-				<bnu:inputText value="#{usuarioBean.usuarioEntity.email}" label="E-mail"/>
 				
-				<bnu:inputText value="#{usuarioBean.usuarioEntity.password}" label="Password" size="20"/>
+				<h:message for="frm_mail"  />
+				<bnu:inputText id="frm_mail" value="#{usuarioBean.usuarioEntity.email}" label="E-mail" 
+				required="true" required-message="Campo obrigatório"/>
+				
+				
+				<h:message for="frm_senha"  />
+				<bnu:inputText id="frm_senha" value="#{usuarioBean.usuarioEntity.password}" label="Password" size="20"
+				required="true" required-message="Campo obrigatório" />
+				
 				
 				
 				<f:facet name="footer">
