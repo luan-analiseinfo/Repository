@@ -35,28 +35,21 @@
 
 		<p:layoutUnit position="west" resizable="false" closable="false"
 			collapsible="false">
-			<p:panel style="width: 200px !important;">
+			<bnu:panel style="width: 200px !important;" look="blue">
 				<h4>
 					<h:outputText value="Menu Principal" />
 				</h4>
 
-			</p:panel>
-			<div class="navbar-default sidebar" role="navigation">
-				<div class="sidebar-nav navbar-collapse active">
-					<ul class="nav in" id="side-menu">
-						<li><a class="active" href="index.html"><i
-								class="fa fa-dashboard fa-fw"></i> Dashboard</a></li>
 
-						<li><a class="active" href="pages/usuario/usuarioList.xhtml">Usuário</a></li>
-						<li><a class="active" href="#">Permissões</a></li>
-
-						<!-- /.nav-second-level -->
-
-					</ul>
-				</div>
-				<!-- /.sidebar-collapse -->
-			</div>
-
+				<h:form>
+					<bnu:listLinks>
+						<bnu:navLink href="usuarioList.xhtml"
+							value="Usuarios" icon="link" />
+						<bnu:navLink href="" value="Permissão" icon="link" />
+						<bnu:navLink />
+					</bnu:listLinks>
+				</h:form>
+			</bnu:panel>
 		</p:layoutUnit>
 
 		<p:layoutUnit position="center" resizable="false" closable="false"
