@@ -25,21 +25,22 @@
 			/>
 			
 			<bnu:commandButton value="Editar" action="/pages/usuario/usuarioAddEdit.xhtml"
-			actionListener="#{usuarioBean.selectUser()}" update="UsuarioDataTable"
-			look="warning"/>
+			 update="UsuarioDataTable"
+			look="warning" >
+			</bnu:commandButton>
 			
 			
 			<bnu:commandButton value="Excluir" action="/pages/usuario/usuarioAddEdit.xhtml"
-			actionListener="#{usuarioBean.selectUser()}" update="UsuarioDataTable"
+			actionListener="#" update="UsuarioDataTable"
 			look="danger"/>
 			</bnu:buttonToolbar>
 			</h:panelGrid>
 			<br/>
 				<bnu:dataTable id="UsuarioDataTable" widgetVar="dataTable"
 					var="usuario" value="#{usuarioBean.usuarios}" paginator="true"
-					rows="10"
+					rows="10"  
 					paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
-					rowsPerPageTemplate="5,10,20" rowKey="#{usuario.id}" select="true"
+					rowsPerPageTemplate="5,10,20" rowKey="#{usuario.id}" select="true" 
 					selectionMode="single">
 					<bnu:dataTableColumn>
 						<f:facet name="header">
