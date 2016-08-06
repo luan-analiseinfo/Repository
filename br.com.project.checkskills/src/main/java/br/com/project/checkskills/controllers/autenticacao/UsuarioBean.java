@@ -15,6 +15,7 @@ import org.primefaces.event.SelectEvent;
 import br.com.project.checkskills.entities.autenticacao.UsuarioEntity;
 import br.com.project.checkskills.repositories.autenticacao.IUsuarioRepository;
 import br.com.project.checkskills.user.UserMB;
+import br.com.project.checkskills.utils.FacesUtil;
 
 @ManagedBean(name="usuarioBean")
 @ViewScoped
@@ -36,7 +37,6 @@ public class UsuarioBean implements Serializable {
 	@ManagedProperty(value="#{usuarioEntity}")
 	private UsuarioEntity usuarioEntity;
 	
-	private UsuarioEntity selectedUser;
 	
 	private Long id;
 	
@@ -60,36 +60,44 @@ public class UsuarioBean implements Serializable {
 				
 	}
 	
-	
-	public void cancel() {
-		this.unselectUser();
-		
-	}
-	
-	
-	public void selectUser(SelectEvent evt) {
+	public void loadCadastro(){
 		try {
-			if (evt.getObject() != null) {
-				this.selectedUser = (UsuarioEntity) evt.getObject();
-			} else {
-				this.selectedUser = null;
+			String valor = FacesUtil.getParam("usercod");
+			if (valor != null) {
+				Long codigo = Long.parseLong(valor);
+				usuarioEntity = new UsuarioEntity();
+				usuarioEntity = this.usuarioRepository.findById(codigo);
+				LOGGER.info(usuarioEntity);
 			}
 		} catch (Exception e) {
-			this.selectedUser = null;
-
-			LOGGER.error(e.getMessage(), e);
+			e.printStackTrace();
 		}
 	}
-
-	public void unselectUser() {
-		this.selectedUser = null;
-		usuarioEntity = null;
+	
+	//botão cancelar
+	public String cancel() {
+		this.setUsuarioEntity(null);
+		return "/pages/usuario/usuarioList.xhtml?faces-redirect=true";
 	}
 	
+	
+	//botão adicionar
 	public String add(){
 		this.usuarioEntity = null;
 		return "/pages/usuario/usuarioAddEdit.xhtml?faces-redirect=true";
 	}
+	
+	//botão editar
+		public String editar(){
+			return "/pages/usuario/usuarioAddEdit.xhtml?faces-redirect=true";
+		}
+		
+		public String excluir(){
+			return "/pages/usuario/usuarioAddEdit.xhtml?faces-redirect=true";
+		}
+		
+		
+		
 	
 	//todos get e set
 	public IUsuarioRepository getUsuarioRepository() {
@@ -119,14 +127,6 @@ public class UsuarioBean implements Serializable {
 
 	public void setUsuarioEntity(UsuarioEntity usuarioEntity) {
 		this.usuarioEntity = usuarioEntity;
-	}
-
-	public UsuarioEntity getSelectedUser() {
-		return selectedUser;
-	}
-
-	public void setSelectedUser(UsuarioEntity selectedUser) {
-		this.selectedUser = selectedUser;
 	}
 
 	public Long getId() {

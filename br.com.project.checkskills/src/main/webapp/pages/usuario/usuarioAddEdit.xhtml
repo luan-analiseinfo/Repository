@@ -8,15 +8,18 @@
 
 
 <ui:composition template="/tampletes/modeloGeral.xhtml">
+	
 	<ui:define name="conteudo">
-	
-	
+		<f:view>
+			<f:event listener="#{usuarioBean.loadCadastro()}" type="preRenderView"></f:event>
+		</f:view>
 		<h:form id="frmuser">
 			<h:inputHidden value="#{usuarioBean.usuarioEntity.id}"/>
 			
 			
 				<bnu:panel title="Dados Usuário" >
 				
+		
 				<h:message for="frm_nome"  />
 				<bnu:inputText id="frm_nome" value="#{usuarioBean.usuarioEntity.nome}" label="Nome Usuário" 
 				required="true" required-message="Campo obrigatório"  />
